@@ -71,7 +71,7 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-      I’m Navid, a <strong className="text-stone-100"></strong>Unity developer</strong>. I have experience in making games using programming languages such as C#. I also have good graphic skills for designing game and application elements.
+      I’m Navid, a <strong className="text-stone-100">Unity developer</strong>. I have experience in making games using programming languages such as C#. I also have good graphic skills for designing game and application elements.
       </p>
     </>
   ),
