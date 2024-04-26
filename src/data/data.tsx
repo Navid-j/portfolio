@@ -69,6 +69,7 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
+  profileImageSrc: profilepic,
   name: `I'm Navid`,
   description: (
     <>
@@ -90,16 +91,6 @@ export const heroData: Hero = {
       primary: false,
     },
   ],
-};
-
-/**
- * About section
- */
-export const aboutData: About = {
-  profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
   aboutItems: [
     {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
     {label: 'Age', text: '29', Icon: CalendarIcon},
