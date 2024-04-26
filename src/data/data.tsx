@@ -69,12 +69,14 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Navid`,
+  profileImageSrc: profilepic,
+  name: `I'm Navid :)`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-      I’m Navid, a <strong className="text-stone-100">Unity developer</strong>. I have experience in making games 
-      using programming languages such as C#. I also have good graphic skills for designing game and application elements.
+      Hello, I’m Navid Jahangiri, a <strong className="text-stone-100">Unity developer</strong> with extensive experience in creating games using programming languages like C#. 
+      I also possess strong graphic skills for designing elements in games and applications. I’m on the lookout for engaging 
+      and profitable projects. If you’re interested in collaborating, please feel free to reach out to me.
       </p>
     </>
   ),
@@ -90,6 +92,14 @@ export const heroData: Hero = {
       text: 'Contact',
       primary: false,
     },
+  ],
+  aboutItems: [
+    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
+    {label: 'Age', text: '29', Icon: CalendarIcon},
+    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
+    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
+    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
+    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
   ],
 };
 
