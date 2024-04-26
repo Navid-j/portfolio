@@ -76,7 +76,7 @@ export const heroData: Hero = {
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
       Hello, I’m Navid Jahangiri, a <strong className="text-stone-100">Unity developer</strong> with extensive experience in creating games using programming languages like C#. 
       I also possess strong graphic skills for designing elements in games and applications. I’m on the lookout for engaging 
-      and profitable projects. If you’re interested in collaborating, please feel free to reach out to me.
+      and profitable projects. If you’re interested in collaborating, please feel free to reach out to me :).
       </p>
     </>
   ),
