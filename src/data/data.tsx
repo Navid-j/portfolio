@@ -26,7 +26,9 @@ import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
 import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profilepic.jpg';
+import testimonialImage from '../images/testimonial.webp';
 import {
+  About,
   ContactSection,
   ContactType,
   Hero,
@@ -34,6 +36,7 @@ import {
   PortfolioItem,
   SkillGroup,
   Social,
+  TestimonialSection,
   TimelineItem,
 } from './dataDef';
 
@@ -41,8 +44,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Navid Jahangiri - Portfolio',
-  description: "My Portfolio",
+  title: 'React Resume Template',
+  description: "Example site built with Tim Baker's react resume template",
 };
 
 /**
@@ -56,6 +59,7 @@ export const SectionId = {
   Resume: 'resume',
   Skills: 'skills',
   Stats: 'stats',
+  Testimonials: 'testimonials',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
@@ -65,12 +69,18 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  profileImageSrc: profilepic,
-  name: `I'm Navid`,
+  name: `I'm Tim Baker.`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-      I’m Navid, a <strong className="text-stone-100">Unity developer</strong>. I have experience in making games using programming languages such as C#. I also have good graphic skills for designing game and application elements.
+        I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
+        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
+        registrar and site builder.
+      </p>
+      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
+        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
+        <strong className="text-stone-100">Vancouver Island</strong>.
       </p>
     </>
   ),
@@ -87,6 +97,16 @@ export const heroData: Hero = {
       primary: false,
     },
   ],
+};
+
+/**
+ * About section
+ */
+export const aboutData: About = {
+  profileImageSrc: profilepic,
+  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
+  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
+  in.`,
   aboutItems: [
     {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
     {label: 'Age', text: '29', Icon: CalendarIcon},
@@ -285,6 +305,30 @@ export const experience: TimelineItem[] = [
     ),
   },
 ];
+
+/**
+ * Testimonial section
+ */
+export const testimonial: TestimonialSection = {
+  imageSrc: testimonialImage,
+  testimonials: [
+    {
+      name: 'John Doe',
+      text: 'Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients.',
+      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
+    },
+    {
+      name: 'Jane Doe',
+      text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
+      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
+    },
+    {
+      name: 'Someone else',
+      text: 'Add several of these, and keep them as fresh as possible, but be sure to focus on quality testimonials with strong highlights of your skills/work ethic.',
+      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
+    },
+  ],
+};
 
 /**
  * Contact section
