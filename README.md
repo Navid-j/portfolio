@@ -31,7 +31,7 @@
 4. Re-organized data population file for customizing site.
 5. Significant improvement/modernization of all site sections
  
-**Looking for the old version? You can find it [here.](https://github.com/navid-j/portfolio/releases/tag/v1.0.0)**
+**Looking for the old version? You can find it [here.](https://github.com/tbakerx/react-resume-template/releases/tag/v1.0.0)**
 
 ## Description
 
@@ -76,9 +76,9 @@ Deploying your new site to Vercel is simple, and can be done by following their 
 
 ## Stargazers
 
-[![Stargazers repo roster for @navid-j/portfolio](https://reporoster.com/stars/dark/tbakerx/react-resume-template)](https://github.com/tbakerx/portfolio/stargazers)
+[![Stargazers repo roster for @tbakerx/react-resume-template](https://reporoster.com/stars/dark/tbakerx/react-resume-template)](https://github.com/tbakerx/react-resume-template/stargazers)
 
 ## Forkers
 
-[![Forkers repo roster for @navid-j/portfolio](https://reporoster.com/forks/dark/tbakerx/react-resume-template)](https://github.com/tbakerx/portfolio/network/members)
+[![Forkers repo roster for @tbakerx/react-resume-template](https://reporoster.com/forks/dark/tbakerx/react-resume-template)](https://github.com/tbakerx/react-resume-template/network/members)
 
