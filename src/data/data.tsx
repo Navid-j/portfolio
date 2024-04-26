@@ -17,7 +17,7 @@ import heroImage from '../images/header-background.webp';
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
 import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
+import porfolioImage4 from '../images/portfolio/swim-dash.jpg';
 import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
 import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
 import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
@@ -44,8 +44,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'React Resume Template',
-  description: "Example site built with Tim Baker's react resume template",
+  title: 'Navid Jahangiri Portfolio',
+  description: "Unity developer, Check out some of my work",
 };
 
 /**
@@ -53,7 +53,7 @@ export const homePageMeta: HomepageMeta = {
  */
 export const SectionId = {
   Hero: 'hero',
-  About: 'about',
+  About: 'hero',
   Contact: 'contact',
   Portfolio: 'portfolio',
   Resume: 'resume',
@@ -218,9 +218,9 @@ export const portfolioItems: PortfolioItem[] = [
     image: porfolioImage3,
   },
   {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Swim Dash: Feed the Fish',
+    description: 'Dive into an exciting underwater adventure with "Swim Dash: Feed the Fish"!',
+    url: 'https://play.google.com/store/apps/details?id=com.SmartClouds.com.unity.template.MyFish',
     image: porfolioImage4,
   },
   {
