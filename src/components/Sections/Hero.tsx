@@ -55,5 +55,5 @@ const Hero: FC = memo(() => {
   );
 });
 
-Hero.displayName = 'Hero';
+Hero.displayName = 'About';
 export default Hero;
