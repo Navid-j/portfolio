@@ -52,7 +52,7 @@ export const homePageMeta: HomepageMeta = {
  * Section definition
  */
 export const SectionId = {
-  Hero: 'hero',
+  Hero: 'About',
   About: 'hero',
   Contact: 'contact',
   Portfolio: 'portfolio',
