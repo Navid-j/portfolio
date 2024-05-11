@@ -203,7 +203,7 @@ export const portfolioItems: PortfolioItem[] = [
     {
         title: 'Avian Rescue',
         description: 'In this thrilling game, a brave driver saves kidnapped birds by precisely shooting cages while navigating through urban obstacles',
-        url: ' ',
+        url: 'https://github.com/Navid-j/Avian-Rescue',
         image: porfolioImage5,
     },
 ];
