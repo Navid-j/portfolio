@@ -19,7 +19,7 @@ import heroImage from '../images/header-background.webp';
 //import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
 import porfolioImage4 from '../images/portfolio/swim-dash.gif';
 import porfolioImage5 from '../images/portfolio/car.gif';
-//import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
+import porfolioImage6 from '../images/portfolio/basketball.gif';
 //import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
 //import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
 //import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
@@ -205,6 +205,12 @@ export const portfolioItems: PortfolioItem[] = [
         description: 'In this thrilling game, a brave driver saves kidnapped birds by precisely shooting cages while navigating through urban obstacles',
         url: 'https://github.com/Navid-j/Avian-Rescue',
         image: porfolioImage5,
+    },
+    {
+        title: 'Basketball',
+        description: 'A simple yet engaging basketball game where you aim to throw the ball into the hoop and score points. With its two-dimensional black and white graphics, the game delivers a real basketball experience through challenging and exciting mechanic',
+        url: 'https://github.com/Navid-j/Basketball',
+        image: porfolioImage6,
     },
 ];
 
