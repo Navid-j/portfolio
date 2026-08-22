@@ -9,7 +9,7 @@ export const SITE = {
 export const PROFILE = {
   identity: {
     name: "Navid Jahangiri",
-    location: "Isfahan, Iran",
+    location: "Iran",
     title: "Software Engineer",
     secondaryTitle: "Project Control Specialist",
     email: "navid.jahangiry@live.com",
