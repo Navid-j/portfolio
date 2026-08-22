@@ -25,7 +25,7 @@ To update content (jobs, skills, projects), edit `src/data/profile.ts` only.
 | Command           | Action                                    |
 | ----------------- | ----------------------------------------- |
 | `npm install`     | Install dependencies                      |
-| `npm run dev`     | Local dev server at `localhost:4321/portfolio` |
+| `npm run dev`     | Local dev server at `localhost:4321` |
 | `npm run build`   | Production build to `./dist/`             |
 | `npm run preview` | Preview the production build locally      |
 
