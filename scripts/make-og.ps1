@@ -67,8 +67,8 @@ foreach ($s in $stations) {
 $monoFont = New-Object System.Drawing.Font('Consolas', 19)
 $g.DrawString('C#   .NET MAUI   Python   Unity   REST APIs', $monoFont, $blue, 78, 545)
 $urlFont = New-Object System.Drawing.Font('Consolas', 17)
-$urlSize = $g.MeasureString('navid-j.github.io/portfolio', $urlFont)
-$g.DrawString('navid-j.github.io/portfolio', $urlFont, $faint, $width - 80 - $urlSize.Width, 550)
+$urlSize = $g.MeasureString('navid-j.github.io', $urlFont)
+$g.DrawString('navid-j.github.io', $urlFont, $faint, $width - 80 - $urlSize.Width, 550)
 
 $g.Dispose()
 $bitmap.Save($outPath, [System.Drawing.Imaging.ImageFormat]::Png)

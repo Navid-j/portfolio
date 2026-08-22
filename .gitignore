@@ -4,6 +4,9 @@ node_modules/
 # Distribution
 dist/
 
+# Astro generated
+.astro/
+
 # Environment
 .env
 

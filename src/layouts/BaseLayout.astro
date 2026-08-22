@@ -11,8 +11,8 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
 
 const withBase = (path) => `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/${path}`;
 
-const canonical = new URL('portfolio/', Astro.site ?? 'https://navid-j.github.io');
-const ogImage = new URL('portfolio/og-image.png', Astro.site ?? 'https://navid-j.github.io');
+const canonical = new URL('/', Astro.site ?? 'https://navid-j.github.io');
+const ogImage = new URL('og-image.png', Astro.site ?? 'https://navid-j.github.io');
 
 const personSchema = {
   '@context': 'https://schema.org',
