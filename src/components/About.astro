@@ -1,0 +1,25 @@
+---
+import SectionHead from './SectionHead.astro';
+import { PROFILE } from '../data/profile';
+---
+
+<section class="section" id="about">
+  <div class="container">
+    <SectionHead code="01" title="About" />
+    <p class="about-summary reveal">{PROFILE.summary}</p>
+  </div>
+</section>
+
+<style>
+  .about-summary {
+    max-width: 62ch;
+    font-size: var(--step-1);
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  .about-summary :global(strong) {
+    color: var(--ink);
+    font-weight: 600;
+  }
+</style>

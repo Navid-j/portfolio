@@ -1,0 +1,77 @@
+---
+import SectionHead from './SectionHead.astro';
+import { SKILLS } from '../data/profile';
+
+const groups = [
+  { label: 'Programming', items: SKILLS.programming },
+  { label: 'Frameworks & Platforms', items: SKILLS.frameworks },
+  { label: 'Backend & Integration', items: SKILLS.backend },
+  { label: 'Tools', items: SKILLS.tools },
+  { label: 'Other', items: SKILLS.other },
+];
+---
+
+<section class="section" id="skills">
+  <div class="container">
+    <SectionHead code="02" title="Technical Skills" />
+    <div class="skills-grid">
+      {groups.map((group, i) => (
+        <article class={`card skill-card reveal`} data-delay={String(i % 3)}>
+          <h3 class="skill-card__label">{group.label}</h3>
+          <ul class="skill-card__list">
+            {group.items.map((item) => (
+              <li class="chip">{item}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .skill-card {
+    padding: 1.4rem 1.4rem 1.55rem;
+    transition: border-color 160ms ease, translate 160ms ease;
+  }
+
+  .skill-card:hover {
+    border-color: var(--line-strong);
+    translate: 0 -2px;
+  }
+
+  .skill-card__label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .skill-card__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+  }
+
+  @media (max-width: 62em) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 40em) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

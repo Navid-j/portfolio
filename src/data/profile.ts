@@ -97,7 +97,6 @@ export const EXPERIENCE = [
       "Implemented gameplay mechanics and UI systems.",
       "Collaborated with designers and artists during development.",
     ],
-    note: "This role overlaps with other employment dates; displayed clearly as its own experience.",
   },
 ];
 
@@ -105,8 +104,7 @@ export const PROJECTS = [
   {
     id: "streaming",
     title: "Movie Streaming Application",
-    technologies: ".NET MAUI",
-    backend: "WordPress REST API",
+    technologies: [".NET MAUI", "WordPress REST API"],
     description:
       "A cross-platform media streaming application currently under active development.",
     features: [
@@ -121,18 +119,16 @@ export const PROJECTS = [
   {
     id: "telegram-bot",
     title: "Telegram Automation Bot",
-    technologies: "Python",
+    technologies: ["Python"],
     description:
       "Personal automation tools and Telegram bots for scheduled workflows, API integration, content processing, and automation.",
-    note: "Do not expose private tokens, credentials, configuration files, or private infrastructure information.",
   },
   {
     id: "vpn-config",
     title: "VPN Configuration Automation Tool",
-    technologies: "Python",
+    technologies: ["Python"],
     description:
       "Personal automation tooling involving web scraping, HTTP requests, data processing, and VPN configuration workflows.",
-    note: "Do not expose private server information, credentials, tokens, or sensitive infrastructure details.",
   },
 ];
 
@@ -167,17 +163,20 @@ export const LANGUAGES = {
 export const OIL_GAS_PROJECTS = [
   {
     id: "gas-56",
-    title: "56-inch National Gas Transmission Pipeline",
+    diameter: '56"',
+    name: "National Gas Transmission Pipeline",
     type: "EPC Project",
   },
   {
     id: "propane-24",
-    title: "24-inch Propane & Butane Pipeline",
+    diameter: '24"',
+    name: "Propane & Butane Pipeline",
     type: "EPC Project",
   },
   {
     id: "seawater-64",
-    title: "64-inch Seawater Transfer Pipeline",
+    diameter: '64"',
+    name: "Seawater Transfer Pipeline",
     type: "EPC Project",
   },
 ];

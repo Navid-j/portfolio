@@ -1,0 +1,226 @@
+---
+import { PROFILE } from '../data/profile';
+
+const { identity } = PROFILE;
+---
+
+<section class="hero" id="top">
+  <div class="container hero__inner">
+    <div class="hero__intro">
+      <p class="hero__kicker reveal">Isfahan, Iran</p>
+      <h1 class="hero__name reveal" data-delay="1">{identity.name}</h1>
+      <p class="hero__roles reveal" data-delay="2">
+        <span class="hero__role-primary">{identity.title}</span>
+        <span class="hero__role-sep" aria-hidden="true">/</span>
+        <span class="hero__role-secondary">{identity.secondaryTitle}</span>
+      </p>
+      <p class="hero__tagline reveal" data-delay="3">
+        Building practical software solutions with C#, .NET, Python, and Unity.
+      </p>
+      <div class="hero__actions reveal" data-delay="3">
+        <a class="btn btn--primary" href="#projects">
+          View projects
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 5v14M5 12l7 7 7-7"></path>
+          </svg>
+        </a>
+        <a class="btn btn--ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <aside class="dossier reveal" data-delay="2" aria-label="Profile summary card">
+      <header class="dossier__head">
+        <span>Profile</span>
+        <span>Rev 2026-08</span>
+      </header>
+      <dl class="dossier__body">
+        <div class="dossier__row">
+          <dt>Name</dt>
+          <dd>{identity.name}</dd>
+        </div>
+        <div class="dossier__row">
+          <dt>Based in</dt>
+          <dd>{identity.location}</dd>
+        </div>
+        <div class="dossier__row">
+          <dt>Discipline</dt>
+          <dd>{identity.title}<br />{identity.secondaryTitle}</dd>
+        </div>
+        <div class="dossier__row">
+          <dt>Core stack</dt>
+          <dd>C# · .NET MAUI · Python<br />Unity · REST APIs</dd>
+        </div>
+        <div class="dossier__row">
+          <dt>Email</dt>
+          <dd><a href={`mailto:${identity.email}`}>{identity.email}</a></dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding-top: calc(4rem + clamp(3.5rem, 9vh, 6rem));
+    padding-bottom: clamp(3.5rem, 8vh, 5.5rem);
+    overflow: hidden;
+  }
+
+  /* Blueprint grid backdrop */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 44px 44px;
+    opacity: 0.42;
+    mask-image: radial-gradient(ellipse 92% 78% at 50% 12%, black 30%, transparent 74%);
+    -webkit-mask-image: radial-gradient(ellipse 92% 78% at 50% 12%, black 30%, transparent 74%);
+    pointer-events: none;
+  }
+
+  .hero__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .hero__kicker {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.1rem;
+  }
+
+  .hero__kicker::before {
+    content: '// ';
+    color: var(--faint);
+  }
+
+  .hero__name {
+    font-size: var(--step-hero);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .hero__roles {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.7rem;
+    margin-top: 1.1rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 0.95rem + 0.7vw, 1.35rem);
+    font-weight: 600;
+  }
+
+  .hero__role-sep {
+    color: var(--line-strong);
+  }
+
+  .hero__role-secondary {
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .hero__tagline {
+    margin-top: 1.4rem;
+    max-width: 46ch;
+    font-size: var(--step-1);
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2.2rem;
+  }
+
+  /* ---- Dossier / title block card ---- */
+  .dossier {
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    font-size: 0.88rem;
+  }
+
+  .dossier__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 1.1rem;
+    background: var(--accent-soft);
+    border-bottom: 1px solid var(--line-strong);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .dossier__head span:last-child {
+    color: var(--faint);
+  }
+
+  .dossier__body {
+    margin: 0;
+  }
+
+  .dossier__row {
+    display: grid;
+    grid-template-columns: 6.2rem 1fr;
+    gap: 1rem;
+    padding: 0.75rem 1.1rem;
+  }
+
+  .dossier__row + .dossier__row {
+    border-top: 1px solid var(--line);
+  }
+
+  .dossier__row dt {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    padding-top: 0.15em;
+  }
+
+  .dossier__row dd {
+    margin: 0;
+    color: var(--ink);
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+
+  .dossier__row dd a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .dossier__row dd a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 56em) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .dossier {
+      max-width: 34rem;
+    }
+  }
+</style>

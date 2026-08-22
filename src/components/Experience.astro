@@ -1,0 +1,149 @@
+---
+import SectionHead from './SectionHead.astro';
+import { EXPERIENCE } from '../data/profile';
+---
+
+<section class="section" id="experience">
+  <div class="container">
+    <SectionHead code="03" title="Experience" />
+    <ol class="timeline">
+      {EXPERIENCE.map((job) => (
+        <li class="xp reveal">
+          <p class="xp__period">{job.period}</p>
+          <div class="xp__body">
+            <h3 class="xp__role">{job.role}</h3>
+            <p class="xp__company">{job.company}</p>
+            {job.project && <p class="xp__project">{job.project}</p>}
+            <ul class="xp__points">
+              {job.responsibilities.map((point) => (
+                <li>{point}</li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .xp {
+    display: grid;
+    grid-template-columns: 10rem minmax(0, 1fr);
+    gap: clamp(1.25rem, 4vw, 3rem);
+    position: relative;
+    padding-bottom: clamp(2.25rem, 5vw, 3.25rem);
+  }
+
+  .xp:last-child {
+    padding-bottom: 0;
+  }
+
+  /* Vertical rail */
+  .xp::before {
+    content: '';
+    position: absolute;
+    top: 0.55rem;
+    bottom: 0;
+    left: calc(10rem + clamp(1.25rem, 4vw, 3rem) - 1.4rem);
+    width: 1px;
+    background: var(--line);
+  }
+
+  .xp:last-child::before {
+    display: none;
+  }
+
+  /* Node marker on the rail */
+  .xp::after {
+    content: '';
+    position: absolute;
+    top: 0.35rem;
+    left: calc(10rem + clamp(1.25rem, 4vw, 3rem) - 1.75rem);
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    background: var(--paper);
+    border: 2px solid var(--accent);
+  }
+
+  .xp__period {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--faint);
+    padding-top: 0.3rem;
+  }
+
+  .xp__role {
+    font-size: var(--step-1);
+    font-weight: 600;
+  }
+
+  .xp__company {
+    margin-top: 0.2rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .xp__project {
+    display: inline-block;
+    margin-top: 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--muted);
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .xp__points {
+    list-style: none;
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .xp__points li {
+    position: relative;
+    padding-left: 1.15rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 68ch;
+  }
+
+  .xp__points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 5px;
+    height: 5px;
+    background: var(--line-strong);
+  }
+
+  @media (max-width: 40em) {
+    .xp {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+      padding-left: 1.5rem;
+    }
+
+    .xp::before,
+    .xp::after {
+      left: 0;
+    }
+
+    .xp__period {
+      padding-top: 0;
+    }
+  }
+</style>

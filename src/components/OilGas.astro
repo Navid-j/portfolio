@@ -1,0 +1,226 @@
+---
+import { OIL_GAS_PROJECTS } from '../data/profile';
+---
+
+<section class="oilgas" id="oil-gas">
+  <div class="container">
+    <header class="og-head reveal">
+      <p class="og-code">05</p>
+      <h2 class="og-title">Oil &amp; Gas Experience</h2>
+      <p class="og-lead">
+        Project controls on large-scale EPC pipeline infrastructure — real projects, real
+        schedules, measured progress.
+      </p>
+    </header>
+
+    <figure class="pipeline reveal" data-delay="1" aria-label="EPC pipeline projects">
+      <div class="pipeline__track" aria-hidden="true">
+        <span class="pipeline__flow"></span>
+      </div>
+      <ul class="pipeline__stations">
+        {OIL_GAS_PROJECTS.map((project) => (
+          <li class="station">
+            <span class="station__diameter">{project.diameter}</span>
+            <span class="station__node" aria-hidden="true"></span>
+            <span class="station__name">{project.name}</span>
+            <span class="station__tag">EPC</span>
+          </li>
+        ))}
+      </ul>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .oilgas {
+    background: #0e1420;
+    color: #e7ecf5;
+    padding-block: clamp(3.25rem, 6vw, 5rem);
+  }
+
+  .oilgas :global(::selection) {
+    background: #8fb0f2;
+    color: #0e1420;
+  }
+
+  .og-head {
+    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .og-code {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8fb0f2;
+    margin-bottom: 0.9rem;
+  }
+
+  .og-code::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(231, 236, 245, 0.14);
+  }
+
+  .og-title {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #f2f5fb;
+  }
+
+  .og-lead {
+    margin-top: 0.85rem;
+    max-width: 56ch;
+    color: #93a0b8;
+  }
+
+  /* ---- Pipeline schematic ---- */
+  .pipeline {
+    margin: 0;
+    position: relative;
+    padding-top: 0.5rem;
+  }
+
+  .pipeline__track {
+    position: absolute;
+    top: calc(3.4rem + 1.15rem + 8px);
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(143, 176, 242, 0.28);
+    overflow: hidden;
+  }
+
+  .pipeline__flow {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(143, 176, 242, 0.85) 0 18px,
+      transparent 18px 34px
+    );
+    animation: flow 1.4s linear infinite;
+  }
+
+  @keyframes flow {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(34px);
+    }
+  }
+
+  .pipeline__stations {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .station {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .station__diameter {
+    font-family: var(--font-mono);
+    font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1;
+    height: 3.4rem;
+    display: grid;
+    place-items: end center;
+    color: #f2f5fb;
+  }
+
+  .station__node {
+    width: 16px;
+    height: 16px;
+    margin-top: 1.15rem;
+    border-radius: 50%;
+    border: 3px solid #8fb0f2;
+    background: #0e1420;
+    box-shadow: 0 0 0 5px rgba(143, 176, 242, 0.12), 0 0 22px rgba(143, 176, 242, 0.25);
+  }
+
+  .station__name {
+    margin-top: 1.1rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    max-width: 17ch;
+    line-height: 1.45;
+  }
+
+  .station__tag {
+    margin-top: 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #93a0b8;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pipeline__flow {
+      animation: none;
+    }
+  }
+
+  @media (max-width: 44em) {
+    .pipeline__track {
+      display: none;
+    }
+
+    .pipeline__stations {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .station {
+      position: relative;
+      align-items: flex-start;
+      text-align: left;
+      padding-left: 2.25rem;
+      display: grid;
+      justify-items: start;
+    }
+
+    .station + .station::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: -1.55rem;
+      width: 2px;
+      height: 1.3rem;
+      background: rgba(143, 176, 242, 0.28);
+    }
+
+    .station__node {
+      position: absolute;
+      left: 0;
+      top: 0.4rem;
+      margin-top: 0;
+    }
+
+    .station__diameter {
+      height: auto;
+      place-items: start;
+      font-size: 1.6rem;
+    }
+
+    .station__name,
+    .station__tag {
+      max-width: none;
+    }
+  }
+</style>

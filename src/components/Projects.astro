@@ -1,0 +1,157 @@
+---
+import SectionHead from './SectionHead.astro';
+import { PROJECTS } from '../data/profile';
+---
+
+<section class="section section--tinted" id="projects">
+  <div class="container">
+    <SectionHead code="04" title="Selected Projects" />
+
+    <div class="projects-grid">
+      {PROJECTS.map((project, i) => (
+        <article class={`card project reveal`} data-delay={String(i)}>
+          <header class="project__head">
+            <span class="project__index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            {project.status && <span class="chip project__status">{project.status}</span>}
+          </header>
+
+          <h3 class="project__title">{project.title}</h3>
+
+          <ul class="project__stack" aria-label="Technologies">
+            {project.technologies.map((tech) => (
+              <li>{tech}</li>
+            ))}
+          </ul>
+
+          <p class="project__description">{project.description}</p>
+
+          {project.features && (
+            <ul class="project__features">
+              {project.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+          )}
+        </article>
+      ))}
+    </div>
+
+    <p class="projects-note reveal">
+      Personal products built independently — source code and implementation details are kept private.
+    </p>
+  </div>
+</section>
+
+<style>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .project {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1.5rem 1.7rem;
+    transition: border-color 160ms ease, translate 160ms ease;
+  }
+
+  .project:hover {
+    border-color: var(--line-strong);
+    translate: 0 -3px;
+  }
+
+  .project__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .project__index {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+  }
+
+  .project__status {
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    background: var(--accent-soft);
+  }
+
+  .project__title {
+    font-size: 1.22rem;
+    font-weight: 600;
+  }
+
+  .project__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    list-style: none;
+    margin-top: 0.8rem;
+  }
+
+  .project__stack li {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+    border: 1px solid var(--line-strong);
+    border-radius: 5px;
+    padding: 0.22rem 0.5rem;
+  }
+
+  .project__description {
+    margin-top: 1rem;
+    font-size: 0.93rem;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  .project__features {
+    list-style: none;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .project__features li {
+    position: relative;
+    padding-left: 1.05rem;
+    font-size: 0.86rem;
+    color: var(--muted);
+  }
+
+  .project__features li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    font-family: var(--font-mono);
+    color: var(--accent);
+  }
+
+  .project:nth-child(2) .project__description,
+  .project:nth-child(3) .project__description {
+    flex: 1;
+  }
+
+  .projects-note {
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--faint);
+  }
+
+  @media (max-width: 56em) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

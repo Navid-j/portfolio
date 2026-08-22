@@ -1,0 +1,166 @@
+---
+import SectionHead from './SectionHead.astro';
+import { PROFILE } from '../data/profile';
+
+const { identity } = PROFILE;
+
+const channels = [
+  {
+    label: 'Email',
+    value: identity.email,
+    href: `mailto:${identity.email}`,
+    external: false,
+  },
+  {
+    label: 'Phone',
+    value: identity.phone,
+    href: `tel:${identity.phone.replace(/[^+\d]/g, '')}`,
+    external: false,
+  },
+  {
+    label: 'LinkedIn',
+    value: 'in/navid-jahangiri',
+    href: identity.linkedin,
+    external: true,
+  },
+  {
+    label: 'GitHub',
+    value: 'github.com/Navid-j',
+    href: identity.github,
+    external: true,
+  },
+];
+---
+
+<section class="section section--flush" id="contact">
+  <div class="container">
+    <SectionHead code="07" title="Contact" />
+
+    <div class="contact-grid">
+      <div class="contact-intro reveal">
+        <p class="contact-line">
+          The most reliable way to reach me is <a class="text-link" href={`mailto:${identity.email}`}>email</a>.
+        </p>
+        <p class="contact-sub">Also active on LinkedIn and GitHub.</p>
+      </div>
+
+      <ul class="contact-list reveal" data-delay="1">
+        {channels.map((channel) => (
+          <li>
+            <a
+              class="contact-row"
+              href={channel.href}
+              target={channel.external ? '_blank' : undefined}
+              rel={channel.external ? 'noopener noreferrer' : undefined}
+            >
+              <span class="contact-row__label">{channel.label}</span>
+              <span class="contact-row__value">{channel.value}</span>
+              <svg
+                class="contact-row__arrow"
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M7 17L17 7M9 7h8v8"></path>
+              </svg>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 6vw, 4rem);
+    align-items: start;
+  }
+
+  .contact-intro {
+    position: sticky;
+    top: 6.5rem;
+  }
+
+  .contact-line {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    max-width: 22ch;
+  }
+
+  .contact-sub {
+    margin-top: 1rem;
+    color: var(--muted);
+    max-width: 34ch;
+  }
+
+  .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .contact-row {
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.05rem 0.25rem;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+
+  .contact-row__label {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  .contact-row__value {
+    font-weight: 500;
+    overflow-wrap: anywhere;
+    transition: color 140ms ease;
+  }
+
+  .contact-row__arrow {
+    color: var(--faint);
+    transition: transform 160ms ease, color 140ms ease;
+  }
+
+  .contact-row:hover .contact-row__value {
+    color: var(--accent);
+  }
+
+  .contact-row:hover .contact-row__arrow {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
+
+  @media (max-width: 56em) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-intro {
+      position: static;
+    }
+
+    .contact-row {
+      grid-template-columns: 5rem minmax(0, 1fr) auto;
+    }
+  }
+</style>
