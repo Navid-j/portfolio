@@ -300,14 +300,14 @@ html[data-theme='dark'] .btn--primary:hover {
   transform: translateY(0);
 }
 
-/* ---------- Reveal animations ---------- */
-.reveal {
+/* ---------- Reveal animations (only when JS is available) ---------- */
+html[data-js] .reveal {
   opacity: 0;
   translate: 0 18px;
   transition: opacity 640ms ease, translate 640ms ease;
 }
 
-.reveal.is-visible {
+html[data-js] .reveal.is-visible {
   opacity: 1;
   translate: 0 0;
 }
@@ -337,7 +337,7 @@ html[data-theme='dark'] .btn--primary:hover {
     transition-duration: 0.01ms !important;
   }
 
-  .reveal {
+  html[data-js] .reveal {
     opacity: 1;
     translate: none;
   }
