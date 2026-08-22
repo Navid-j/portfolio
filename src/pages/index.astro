@@ -1,0 +1,279 @@
+---
+import { PROFILE, SKILLS, EXPERIENCE, PROJECTS, EDUCATION, CERTIFICATIONS, LANGUAGES, OIL_GAS_PROJECTS } from '../data/profile';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <article class="max-w-4xl mx-auto">
+    {/* ==================== Hero ==================== */}
+    <section id="hero" class="hero-section section-padding">
+      <div class="container">
+        <div class="grid lg:grid-cols-2 gap-8 items-center min-h-[60vh]">
+          <div>
+            <h1 class="hero-title accent">
+              Navid Jahangiri
+            </h1>
+            <p class="hero-subtitle mt-2">
+              Software Engineer • Project Control Specialist
+            </p>
+            <p class="mt-4 text-lg" style="max-width: 48ch;">
+              Building practical software solutions with C#, .NET, Python, and Unity.
+            </p>
+          </div>
+          <div class="relative">
+            <!-- Pipeline icon / signature silhouette -->
+            <div class="absolute right-0 top-0 opacity-20">
+              <svg class="h-64 w-64" viewBox="0 0 200 200" fill="none">
+                <path
+                  class="accent"
+                  d="M40 80 L160 80"
+                  stroke-width="4"
+                />
+                <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ==================== About / Summary ==================== */}
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="prose lg:prose-lg max-w-none">
+          <h2 class="section-title font-display text-2xl font-bold tracking-tighter mb-6 accent">
+            About
+          </h2>
+          <p>
+            {PROFILE.summary}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* ==================== Skills ==================== */}
+    <section id="skills" class="section-padding" style="background: var(--bg-light);">
+      <div class="container">
+        <h2 class="section-title font-display text-2xl font-bold tracking-tighter mb-8 accent">Skills</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+          <div class="card">
+            <h3 class="font-display font-medium mb-3">Programming</h3>
+            <ul class="space-y-1 text-sm">
+              <li>{SKILLS.programming[0]}</li>
+              <li>{SKILLS.programming[1]}</li>
+              <li>{SKILLS.programming[2]}</li>
+              <li>{SKILLS.programming[3]}</li>
+              <li>{SKILLS.programming[4]}</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="font-display font-medium mb-3">Frameworks & Platforms</h3>
+            <ul class="space-y-1 text-sm">
+              <li>{SKILLS.frameworks[0]}</li>
+              <li>{SKILLS.frameworks[1]}</li>
+              <li>{SKILLS.frameworks[2]}</li>
+              <li>{SKILLS.frameworks[3]}</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="font-display font-medium mb-3">Backend & Integration</h3>
+            <ul class="space-y-1 text-sm">
+              <li>{SKILLS.backend[0]}</li>
+              <li>{SKILLS.backend[1]}</li>
+              <li>{SKILLS.backend[2]}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="card">
+            <h3 class="font-display font-medium mb-3">Tools</h3>
+            <ul class="space-y-1 text-sm">
+              <li>{SKILLS.tools[0]}</li>
+              <li>{SKILLS.tools[1]}</li>
+              <li>{SKILLS.tools[2]}</li>
+              <li>{SKILLS.tools[3]}</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="font-display font-medium mb-3">Other</h3>
+            <ul class="space-y-1 text-sm">
+              <li>{SKILLS.other[0]}</li>
+              <li>{SKILLS.other[1]}</li>
+              <li>{SKILLS.other[2]}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ==================== Professional Experience ==================== */}
+    <section id="experience" class="section-padding">
+      <div class="container">
+        <h2 class="section-title font-display text-2xl font-bold tracking-tighter mb-8 accent">Professional Experience</h2>
+        <div class="space-y-8">
+          {EXPERIENCE.map((exp) => (
+            <div key={exp.id} class="card">
+              <h3 class="font-display font-semibold mb-2">
+                {exp.role} @ {exp.company}
+              </h3>
+              <p class="text-sm text-[var(--muted-light)] mb-4">
+                {exp.period}
+              </p>
+              {exp.project && (
+                <p class="text-sm mb-4 accent" style="max-width: 48ch;">
+                  Project: {exp.project}
+                </p>
+              )}
+              <ul class="space-y-2 text-sm">
+                {exp.responsibilities.map((res) => (
+                  <li key={res} class="flex items-start">
+                    <span class="w-1 h-1 rounded-full bg-accent flex-shrink-0 mt-1" />
+                    <span>{res}</span>
+                  </li>
+                ))}
+              </ul>
+              {exp.note && (
+                <p class="text-xs text-[var(--muted-light)] mt-3">{exp.note}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ==================== Selected Projects ==================== */}
+    <section id="projects" class="section-padding">
+      <div class="container">
+        <h2 class="section-title font-display text-2xl font-bold tracking-tighter mb-8 accent">Selected Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PROJECTS.map((proj) => (
+            <div key={proj.id} class="card h-full">
+              <h3 class="font-display font-medium mb-3 accent">{proj.title}</h3>
+              <p class="text-sm text-[var(--muted-light)] mb-4">
+                {proj.technologies || ''}
+                {proj.backend && (
+                  <span class="ml-2 text-[var(--muted-light)]">• {proj.backend}</span>
+                )}
+              </p>
+              {proj.description && (
+                <p class="text-sm line-clamp-3">{proj.description}</p>
+              )}
+              <div class="mt-auto pt-2 text-xs text-[var(--muted-light)]">
+                Status: {proj.status || 'Completed'}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ==================== Oil & Gas Experience ==================== */}
+    <section id="oil-gas" class="section-padding" style="background: var(--bg-light);">
+      <div class="container">
+        <h2 class="section-title font-display text-2xl font-bold tracking-tighter mb-8 accent">
+          Oil & Gas Experience
+        </h2>
+        <div class="grid grid-cols-1 gap-4">
+          {OIL_GAS_PROJECTS.map((proj) => (
+            <div key={proj.id} class="pipeline-card">
+              <div class="pipeline-diameter">{proj.title.split(' ')[0]}</div>
+              <div class="text-sm text-[var(--muted-light)] mt-1 text-center">
+                {proj.title}
+              </div>
+              <div class="text-xs text-[var(--muted-light)] mt-0.5 capitalize">
+                EPC Project
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ==================== Education & Certification ==================== */}
+    <section id="education" class="section-padding">
+      <div class="container">
+        <h2 class="section-title font-display text-2xl font-bold tracking-tighter mb-8 accent">
+          Education & Certification
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {EDUCATION.map((edu) => (
+            <div key={edu.degree} class="card">
+              <h3 class="font-display font-medium mb-2">{edu.degree}</h3>
+              <p class="text-sm text-[var(--muted-light)]">{edu.field}</p>
+              <p class="text-sm">{edu.institution}</p>
+              <p class="text-[var(--muted-light)] text-sm">{edu.period}</p>
+            </div>
+          ))}
+          {CERTIFICATIONS.map((cert) => (
+            <div key={cert.title} class="card">
+              <h3 class="font-display font-medium mb-2">{cert.title}</h3>
+              <p class="text-sm">{cert.issuer}</p>
+              <p class="text-[var(--muted-light)] text-sm">{cert.issued}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ==================== Languages ==================== */}
+    <section id="languages" class="section-padding" style="background: var(--bg-light);">
+      <div class="container">
+        <h2 class="section-title font-display text-2xl font-bold tracking-tighter mb-8 accent">Languages</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <p class="font-display font-medium">Persian</p>
+            <p class="text-[var(--muted-light)]">Native</p>
+          </div>
+          <div>
+            <p class="font-display font-medium">English</p>
+            <p class="text-[var(--muted-light)]">Professional Working Proficiency</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ==================== Contact ==================== */}
+    <section id="contact" class="section-padding">
+      <div class="container">
+        <h2 class="section-title font-display text-2xl font-bold tracking-tighter mb-8 accent">Contact</h2>
+        <div class="grid grid-cols-2 gap-6">
+          <div>
+            <p class="font-display font-medium">Email</p>
+            <a 
+              href="mailto:navid.jahangiry@live.com" 
+              class="accent hover:underline"
+            >
+              navid.jahangiry@live.com
+            </a>
+            <p class="text-sm text-[var(--muted-light)] mt-2">
+              +98 939 628 1508
+            </p>
+          </div>
+          <div>
+            <p class="font-display font-medium">Online</p>
+            <div class="flex gap-3 mt-2">
+              <a 
+                href="https://www.linkedin.com/in/navid-jahangiri/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="accent hover:underline"
+                aria-label="LinkedIn"
+              >
+                LinkedIn
+              </a>
+              <a 
+                href="https://github.com/Navid-j" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="accent hover:underline"
+                aria-label="GitHub"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</html>
