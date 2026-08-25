@@ -13,7 +13,6 @@ export const PROFILE = {
     title: "Software Engineer",
     secondaryTitle: "Project Control Specialist",
     email: "navid.jahangiry@live.com",
-    phone: "+98 939 628 1508",
     linkedin: "https://www.linkedin.com/in/navid-jahangiri/",
     github: "https://github.com/Navid-j",
   },
@@ -31,6 +30,18 @@ export const SKILLS = {
 
 export const EXPERIENCE = [
   {
+    id: "smi",
+    role: "Project Control Specialist",
+    company: "Sanat va Modiriat IRAN (SMI)",
+    period: "Oct 2025 – Present",
+    project: "56-inch National Gas Transmission Pipeline EPC Project",
+    responsibilities: [
+      "Project control activities for a major gas transmission pipeline EPC project.",
+      "Monitoring project progress, schedule performance, contractor reports, and milestones.",
+      "Supporting schedule updates and reporting using Oracle Primavera P6 and Microsoft Excel.",
+    ],
+  },
+  {
     id: "indie-dev",
     role: "Independent Software Developer",
     company: "Self-employed",
@@ -45,15 +56,15 @@ export const EXPERIENCE = [
     ],
   },
   {
-    id: "smi",
-    role: "Project Control Specialist",
-    company: "Sanat va Modiriat IRAN (SMI)",
-    period: "Oct 2025 – Present",
-    project: "56-inch National Gas Transmission Pipeline EPC Project",
+    id: "smart-clouds",
+    role: "Mobile Game Developer",
+    company: "Smart Clouds",
+    period: "Jun 2023 – Jun 2026",
     responsibilities: [
-      "Project control activities for a major gas transmission pipeline EPC project.",
-      "Monitoring project progress, schedule performance, contractor reports, and milestones.",
-      "Supporting schedule updates and reporting using Oracle Primavera P6 and Microsoft Excel.",
+      "Developed mobile games using Unity and C#.",
+      "Implemented gameplay mechanics, UI systems, and game logic.",
+      "Collaborated with designers and artists throughout the development lifecycle.",
+      "Participated in debugging, optimization, and feature implementation.",
     ],
   },
   {
@@ -85,17 +96,6 @@ export const EXPERIENCE = [
     project: "64-inch seawater transfer pipeline project",
     responsibilities: [
       "Managed engineering documentation, RFIs, drawings, transmittals, and revision control.",
-    ],
-  },
-  {
-    id: "smart-clouds",
-    role: "Mobile Game Developer",
-    company: "Smart Clouds",
-    period: "Jun 2023 – Jun 2026",
-    responsibilities: [
-      "Unity and C# mobile game development.",
-      "Implemented gameplay mechanics and UI systems.",
-      "Collaborated with designers and artists during development.",
     ],
   },
 ];
