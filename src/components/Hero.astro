@@ -2,6 +2,9 @@
 import { PROFILE } from '../data/profile';
 
 const { identity } = PROFILE;
+
+const now = new Date();
+const rev = `Rev ${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
 ---
 
 <section class="hero" id="top">
@@ -31,7 +34,7 @@ const { identity } = PROFILE;
     <aside class="dossier reveal" data-delay="2" aria-label="Profile summary card">
       <header class="dossier__head">
         <span>Profile</span>
-        <span>Rev 2026-08</span>
+        <span>{rev}</span>
       </header>
       <dl class="dossier__body">
         <div class="dossier__row">

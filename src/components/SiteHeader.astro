@@ -46,6 +46,10 @@ const links = [
       </button>
     </div>
   </div>
+
+  <div class="scroll-progress" aria-hidden="true">
+    <span class="scroll-progress__fill" id="scroll-progress-fill"></span>
+  </div>
 </header>
 
 <style>
@@ -114,6 +118,14 @@ const links = [
     color: var(--ink);
   }
 
+  .site-nav__link.is-active {
+    color: var(--ink);
+  }
+
+  .site-nav__link.is-active::after {
+    right: 0;
+  }
+
   .site-nav__link::after {
     content: '';
     position: absolute;
@@ -133,6 +145,35 @@ const links = [
     display: flex;
     align-items: center;
     gap: 0.35rem;
+  }
+
+  /* ---- Pipeline scroll-progress ---- */
+  .scroll-progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .scroll-progress__fill {
+    display: block;
+    height: 100%;
+    width: 0;
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--accent) 0 14px,
+      transparent 14px 26px
+    );
+    animation: header-flow 1s linear infinite;
+  }
+
+  @keyframes header-flow {
+    to {
+      transform: translateX(26px);
+    }
   }
 
   .icon-btn {
@@ -270,4 +311,61 @@ const links = [
       document.documentElement.dataset.theme = event.matches ? 'dark' : 'light';
     }
   });
+
+  // Scroll-spy: highlight the nav link of the section in view
+  const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.site-nav__link'));
+  const sectionIds = navLinks
+    .map((link) => link.getAttribute('href')?.slice(1))
+    .filter((id): id is string => Boolean(id));
+
+  if ('IntersectionObserver' in window && sectionIds.length > 0) {
+    const visible = new Set<string>();
+    const spy = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target.id);
+          else visible.delete(entry.target.id);
+        }
+        let activeId: string | null = null;
+        for (const id of sectionIds) {
+          if (visible.has(id)) {
+            activeId = id;
+            break;
+          }
+        }
+        navLinks.forEach((link) =>
+          link.classList.toggle('is-active', link.getAttribute('href') === `#${activeId}`)
+        );
+      },
+      { rootMargin: '-35% 0px -60% 0px' }
+    );
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) spy.observe(el);
+    });
+  }
+
+  // Pipeline scroll-progress fill
+  const fill = document.getElementById('scroll-progress-fill');
+  let ticking = false;
+  const updateProgress = () => {
+    if (fill) {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const p = max > 0 ? Math.min(doc.scrollTop / max, 1) : 0;
+      fill.style.width = `${(p * 100).toFixed(2)}%`;
+    }
+    ticking = false;
+  };
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateProgress);
+      }
+    },
+    { passive: true }
+  );
+  updateProgress();
 </script>

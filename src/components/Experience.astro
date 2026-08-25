@@ -1,19 +1,71 @@
 ---
 import SectionHead from './SectionHead.astro';
 import { EXPERIENCE } from '../data/profile';
+
+const toMonthIndex = (ym: string) => {
+  const [y, m] = ym.split('-').map(Number);
+  return y * 12 + (m - 1);
+};
+
+const now = new Date();
+const nowIndex = now.getFullYear() * 12 + now.getMonth();
+const domainMax = nowIndex + 6;
+
+const startIndices = EXPERIENCE.map((job) => toMonthIndex(job.start));
+const domainMin = Math.min(...startIndices);
+const span = domainMax - domainMin;
+
+const pct = (index: number) => (index - domainMin) / span * 100;
+const todayPct = pct(nowIndex);
+
+const jobs = EXPERIENCE.map((job) => {
+  const s = toMonthIndex(job.start);
+  const e = job.end === 'present' ? nowIndex : toMonthIndex(job.end);
+  return {
+    ...job,
+    ongoing: job.end === 'present',
+    left: pct(s).toFixed(2),
+    width: Math.max(pct(e) - pct(s), 1.5).toFixed(2),
+  };
+});
+
+const years: { label: string; pos: string }[] = [];
+for (let y = Math.floor(domainMin / 12) + 1; y * 12 <= domainMax; y++) {
+  years.push({ label: `'${String(y % 100).padStart(2, '0')}`, pos: pct(y * 12).toFixed(2) });
+}
 ---
 
 <section class="section" id="experience">
   <div class="container">
     <SectionHead code="03" title="Experience" />
+
+    <div class="timeline-scale" aria-hidden="true">
+      <span></span>
+      <div class="timeline-scale__axis">
+        {years.map((tick) => (
+          <span class="timeline-scale__tick" style={`left:${tick.pos}%`}>{tick.label}</span>
+        ))}
+        <span class="timeline-scale__today" style={`left:${todayPct.toFixed(2)}%`}>TODAY</span>
+      </div>
+    </div>
+
     <ol class="timeline">
-      {EXPERIENCE.map((job) => (
+      {jobs.map((job) => (
         <li class="xp reveal">
           <p class="xp__period">{job.period}</p>
           <div class="xp__body">
             <h3 class="xp__role">{job.role}</h3>
             <p class="xp__company">{job.company}</p>
             {job.project && <p class="xp__project">{job.project}</p>}
+            <div class="xp__gantt" role="img" aria-label={`Tenure: ${job.period}`}>
+              <span class="xp__gantt-track" aria-hidden="true"></span>
+              <span
+                class={`xp__gantt-bar${job.ongoing ? ' xp__gantt-bar--ongoing' : ''}`}
+                style={`--gl:${job.left}%; --gw:${job.width}%`}
+                aria-hidden="true"
+              ></span>
+              <span class="xp__gantt-today" style={`--gt:${todayPct.toFixed(2)}%`} aria-hidden="true"></span>
+            </div>
             <ul class="xp__points">
               {job.responsibilities.map((point) => (
                 <li>{point}</li>
@@ -27,6 +79,41 @@ import { EXPERIENCE } from '../data/profile';
 </section>
 
 <style>
+  /* ---- P6-style duration scale ---- */
+  .timeline-scale {
+    display: grid;
+    grid-template-columns: 10rem minmax(0, 1fr);
+    gap: clamp(1.25rem, 4vw, 3rem);
+    margin-bottom: 0.35rem;
+  }
+
+  .timeline-scale__axis {
+    position: relative;
+    height: 1.05rem;
+    font-family: var(--font-mono);
+  }
+
+  .timeline-scale__tick,
+  .timeline-scale__today {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-left: 1px dashed var(--line);
+    padding-left: 0.3rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    line-height: 1rem;
+    color: var(--faint);
+    white-space: nowrap;
+  }
+
+  .timeline-scale__today {
+    border-left-color: var(--accent-strong);
+    color: var(--accent-strong);
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+
   .timeline {
     list-style: none;
     margin: 0;
@@ -105,6 +192,47 @@ import { EXPERIENCE } from '../data/profile';
     padding: 0.35rem 0.65rem;
   }
 
+  /* ---- Tenure bar (Gantt) ---- */
+  .xp__gantt {
+    position: relative;
+    height: 1.05rem;
+    margin-top: 0.85rem;
+  }
+
+  .xp__gantt-track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 2px;
+    translate: 0 -50%;
+    background: var(--line);
+  }
+
+  .xp__gantt-bar {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    left: var(--gl);
+    width: var(--gw);
+    height: 8px;
+    border-radius: 4px;
+    background: var(--line-strong);
+  }
+
+  .xp__gantt-bar--ongoing {
+    background: var(--accent);
+  }
+
+  .xp__gantt-today {
+    position: absolute;
+    top: -3px;
+    bottom: -3px;
+    left: var(--gt);
+    border-left: 1px dashed var(--accent-strong);
+    opacity: 0.55;
+  }
+
   .xp__points {
     list-style: none;
     margin-top: 1rem;
@@ -131,6 +259,11 @@ import { EXPERIENCE } from '../data/profile';
   }
 
   @media (max-width: 40em) {
+    .timeline-scale {
+      grid-template-columns: 1fr;
+      padding-left: 1.5rem;
+    }
+
     .xp {
       grid-template-columns: 1fr;
       gap: 0.35rem;

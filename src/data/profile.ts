@@ -34,6 +34,8 @@ export const EXPERIENCE = [
     role: "Project Control Specialist",
     company: "Sanat va Modiriat IRAN (SMI)",
     period: "Oct 2025 – Present",
+    start: "2025-10",
+    end: "present",
     project: "56-inch National Gas Transmission Pipeline EPC Project",
     responsibilities: [
       "Project control activities for a major gas transmission pipeline EPC project.",
@@ -46,6 +48,8 @@ export const EXPERIENCE = [
     role: "Independent Software Developer",
     company: "Self-employed",
     period: "Jun 2023 – Present",
+    start: "2023-06",
+    end: "present",
     type: "personal",
     responsibilities: [
       "Developing cross-platform applications using C#, .NET MAUI, and Python.",
@@ -60,6 +64,8 @@ export const EXPERIENCE = [
     role: "Mobile Game Developer",
     company: "Smart Clouds",
     period: "Jun 2023 – Jun 2026",
+    start: "2023-06",
+    end: "2026-06",
     responsibilities: [
       "Developed mobile games using Unity and C#.",
       "Implemented gameplay mechanics, UI systems, and game logic.",
@@ -72,6 +78,8 @@ export const EXPERIENCE = [
     role: "Project Control Specialist",
     company: "Middle East Energy Development Engineers Co.",
     period: "Jul 2024 – Oct 2025",
+    start: "2024-07",
+    end: "2025-10",
     project: "24-inch Propane & Butane Pipeline EPC Project",
     responsibilities: [
       "Monitored project progress for the 24-inch Propane & Butane Pipeline EPC project.",
@@ -83,6 +91,8 @@ export const EXPERIENCE = [
     role: "Project Control Specialist",
     company: "Danial Petro Company",
     period: "Dec 2023 – Jun 2024",
+    start: "2023-12",
+    end: "2024-06",
     responsibilities: [
       "Monitored project progress against approved schedules.",
       "Supported progress measurement using Primavera P6 and Microsoft Excel.",
@@ -93,6 +103,8 @@ export const EXPERIENCE = [
     role: "Document Control Coordinator",
     company: "Danial Petro Company",
     period: "Dec 2022 – Dec 2023",
+    start: "2022-12",
+    end: "2023-12",
     project: "64-inch seawater transfer pipeline project",
     responsibilities: [
       "Managed engineering documentation, RFIs, drawings, transmittals, and revision control.",
