@@ -1,0 +1,42 @@
+# Navid Jahangiri — Software Engineer & Project Control Specialist
+
+> Software Engineer and Project Control Specialist based in Iran. Builds cross-platform applications with C#, .NET MAUI, Python, and Unity, and manages project controls on large-scale EPC oil & gas pipeline infrastructure using Oracle Primavera P6. Currently a Project Control Specialist at Sanat va Modiriat IRAN (SMI) on the 56-inch National Gas Transmission Pipeline EPC Project.
+
+This is the personal portfolio of Navid Jahangiri. It is a single-page site; all content lives on the home page.
+
+## Profile
+
+- Name: Navid Jahangiri
+- Titles: Software Engineer / Project Control Specialist
+- Location: Iran
+- Email: navid.jahangiry@live.com
+- LinkedIn: https://www.linkedin.com/in/navid-jahangiri/
+- GitHub: https://github.com/Navid-j
+
+## Skills
+
+- Programming: C#, Python, Java, Kotlin, SQL
+- Frameworks: .NET, .NET MAUI, ASP.NET Core, Unity
+- Backend & Integration: REST APIs, JSON, WordPress REST API
+- Tools: Git, GitHub, Oracle Primavera P6, Microsoft Excel
+- Other: Object-Oriented Programming, Web Scraping, Automation
+
+## Experience Highlights
+
+- Project Control Specialist — Sanat va Modiriat IRAN (SMI), Oct 2025–Present (56-inch National Gas Transmission Pipeline EPC)
+- Independent Software Developer — Self-employed, Jun 2023–Present (.NET MAUI streaming app, Python automation, Telegram bots)
+- Mobile Game Developer — Smart Clouds, Jun 2023–Jun 2026 (Unity, C#)
+- Project Control Specialist — Middle East Energy Development Engineers Co., Jul 2024–Oct 2025 (24-inch Propane & Butane Pipeline EPC)
+- Project Control Specialist — Danial Petro Company, Dec 2023–Jun 2024
+- Document Control Coordinator — Danial Petro Company, Dec 2022–Dec 2023 (64-inch seawater transfer pipeline)
+
+## Education & Certification
+
+- Associate Degree, Computer Software Engineering — Razi University of Ardabil (2012–2013)
+- Bachelor's Degree, Computer Software Engineering — Shahriyar Astara University (2014–2016)
+- Specialized Course in Project Control in Oil & Gas Industries — South Pars Gas Complex (SPGC), Jul 2024
+
+## Languages
+
+- Persian: Native
+- English: Professional Working Proficiency

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://navid-j.github.io/sitemap-index.xml

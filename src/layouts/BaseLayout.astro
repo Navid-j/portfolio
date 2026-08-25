@@ -54,6 +54,10 @@ const personSchema = {
     <meta name="author" content={SITE.author} />
     <link rel="canonical" href={canonical.href} />
     <link rel="icon" type="image/svg+xml" href={withBase('favicon.svg')} />
+    <link rel="apple-touch-icon" href={withBase('apple-touch-icon.png')} />
+    <link rel="manifest" href={withBase('site.webmanifest')} />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafaf7" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d1118" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
